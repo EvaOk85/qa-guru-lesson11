@@ -34,7 +34,7 @@ def test_successful(setup_browser):
         browser.element('#subjectsContainer').click()
         browser.element('#subjectsInput').type('English').press_enter()
         browser.element('[for=hobbies-checkbox-1]').click()
-        browser.element("#uploadPicture").send_keys(os.path.abspath('foto.jpg'))
+        #browser.element("#uploadPicture").send_keys(os.path.abspath('foto.jpg'))
         browser.element('#currentAddress').type('Voroshiliva')
         browser.element('#react-select-3-input').type('Haryana').press_enter()
         browser.element('#react-select-4-input').type('Panipat').press_enter()
