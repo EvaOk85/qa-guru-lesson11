@@ -1,5 +1,9 @@
+import os
+
 import allure
 from selene import have, by
+
+from conftest import RESOURCE_PATH
 
 
 @allure.title("Successful fill form")
@@ -7,6 +11,8 @@ def test_successful(setup_browser):
     browser = setup_browser
     first_name = "Alex"
     last_name = "Egorov"
+    foto="foto.jpg"
+
 
     with allure.step("Open registrations form"):
         browser.open("https://demoqa.com/automation-practice-form")
@@ -27,7 +33,7 @@ def test_successful(setup_browser):
         browser.element("#subjectsInput").send_keys("Maths")
         browser.element("#subjectsInput").press_enter()
         browser.element("#hobbiesWrapper").element(by.text("Sports")).click()
-        # browser.element("#uploadPicture").uploadFromClasspath("img/1.png")
+        browser.element('#uploadPicture').send_keys(os.getcwd()+'/foto.jpg')
         browser.element("#currentAddress").set_value("Some street 1")
         browser.element("#state").click()
         browser.element("#stateCity-wrapper").element(by.text("NCR")).click()
