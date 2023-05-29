@@ -1,16 +1,12 @@
-import os
-
 import allure
 from selene import have, by
 
-
+from conftest import RESOURCE_PATH
 
 
 @allure.title("Successful fill form")
-def test_successful(setup_browser):
+def test_filling_out_the_form(setup_browser):
     browser = setup_browser
-
-
 
 
     with allure.step("Open registrations form"):
@@ -34,12 +30,11 @@ def test_successful(setup_browser):
         browser.element('#subjectsContainer').click()
         browser.element('#subjectsInput').type('English').press_enter()
         browser.element('[for=hobbies-checkbox-1]').click()
-        #browser.element("#uploadPicture").send_keys(os.path.abspath('foto.jpg'))
+        browser.element('#uploadPicture').set_value(f'{RESOURCE_PATH}/foto.jpg')
         browser.element('#currentAddress').type('Voroshiliva')
         browser.element('#react-select-3-input').type('Haryana').press_enter()
         browser.element('#react-select-4-input').type('Panipat').press_enter()
         browser.element('#submit').click()
-
 
     with allure.step("Check form results"):
         browser.all('tbody tr').should(have.exact_texts(

@@ -57,4 +57,5 @@ def setup_browser (request):
     browser.quit()
 
 
-
+PROJECT_ROOT_PATH = os.path.dirname(__file__)
+RESOURCE_PATH = os.path.abspath(os.path.join(PROJECT_ROOT_PATH, 'resource'))
