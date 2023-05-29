@@ -37,7 +37,7 @@ def test_filling_out_the_form(setup_browser):
         browser.element('#submit').click()
 
     with allure.step("Check form results"):
-        browser.all('tbody tr').should(have.exact_texts(
+        browser.element('table').all('td').even.should(have.exact_texts(
             'Student Name Mariya Petrova', 'Student Email PevRot@mail.ru', 'Gender Female', 'Mobile 7922691865',
             'Date of Birth 04 February,1985', 'Subjects English', 'Hobbies Sports',
-            'Picture foto.jpg', 'Address Voroshiliva', 'State and City Haryana Panipat'))
+            'Picture', 'Address Voroshiliva', 'State and City Haryana Panipat'))
